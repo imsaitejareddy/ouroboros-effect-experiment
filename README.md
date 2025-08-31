@@ -1,6 +1,6 @@
 # The Anti-Ouroboros Effect: Empirical Evidence for Resilience in AI Feedback Loops
 
-This repository contains the code and results for a series of experiments investigating feedback loops in AI models. The research began by validating the "Ouroboros Effect" in a simple classifier and culminated in the discovery of the **"Anti-Ouroboros Effect"** in a large language model (LLM).
+This repository contains the official code, data, and results for the paper, "The Anti-Ouroboros Effect: Empirical Evidence for Resilience in AI Feedback Loops." The research began by validating the "Ouroboros Effect" in a simple classifier and culminated in the discovery of the **"Anti-Ouroboros Effect"** in a large language model (LLM).
 
 ## 📂 Experiments
 
@@ -8,7 +8,7 @@ This repository contains two primary experiments:
 
 ### 1. Large Language Model (LLM) Summarization Experiment (Gemma 2B)
 
-This is the main experiment detailed in the associated paper. It uses the `google/gemma-2b-it` model to test recursive feedback loops on a scientific summarization task (`ccdv/arxiv-summarization`) over five generations.
+This is the main experiment detailed in the paper. It uses the `google/gemma-2b-it` model to test recursive feedback loops on a scientific summarization task (`ccdv/arxiv-summarization`) over five generations.
 
 -   **Key Finding:** Contrary to the original hypothesis, a simple automated quality filter did not accelerate model collapse. Instead, it induced an "Anti-Ouroboros Effect," leading to a robust improvement in model performance (ROUGE-L score), while the unfiltered control arm showed degradation.
 -   **Location:** [`/llm_gemma_experiment/`](./llm_gemma_experiment/)
@@ -40,19 +40,18 @@ The entire experiment can be replicated by running the Jupyter Notebook. This ex
     Open `ouroboros_llm_gemma.ipynb` in a Jupyter environment and execute the cells. The notebook handles all data loading, model fine-tuning, and evaluation.
 
 ### Simple Classifier Experiment (Initial Study)
+(Instructions for the digits experiment follow here...)
 
-1.  **Navigate to the experiment directory:**
-    ```bash
-    cd simple_digits_experiment
-    ```
-2.  **Install dependencies:**
-    ```bash
-    pip install numpy matplotlib scikit-learn
-    ```
-3.  **Run the simulation script:**
-    ```bash
-    python rigorous_studies.py
-    ```
+---
+
+## 🔁 Reproducibility
+
+This project is committed to full reproducibility. All necessary components are publicly available:
+
+* **Code:** All scripts and notebooks used for the experiments are provided in this repository.
+* **Dataset:** The `ccdv/arxiv-summarization` dataset is publicly available on the Hugging Face Hub.
+* **Model:** The base model, `google/gemma-2b-it`, is an open-weight model available on Hugging Face.
+* **Environment:** The exact library versions are specified in the `requirements.txt` file within each experiment's folder. The main experiment was run using a Tesla P100-16GB GPU.
 
 ---
 
@@ -72,3 +71,17 @@ The primary result is the discovery of the **Anti-Ouroboros Effect** in the LLM 
 | 5          | 0.1684     | 0.1746       |
 
 *(Table data extracted from the notebook run)*
+
+---
+
+## 📜 Citation
+
+If you use the code or findings from this research, please cite the paper:
+
+```bibtex
+@article{Adapala2025AntiOuroboros,
+  author  = {Adapala, Sai Teja Reddy},
+  title   = {The Ouroboros Effect and its Inverse: Empirical
+Studies of AI Feedback Loop Dynamics},
+}
+```
